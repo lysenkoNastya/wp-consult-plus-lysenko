@@ -1,0 +1,41 @@
+$brand-color: #ffac56;
+$header-menu-color: #4e4e4e;
+$bg-section: #262829;
+$text-color: #fff;
+$border-header: #545759;
+$text-color-footer: #e1e1e1;
+$text-info-footer: #838b8c;
+$btn-color: #16d428;
+$bg-input-email: #525353;
+
+#text-5 {
+  padding: 30px 10px 0;
+  border: 1px solid $text-color-footer;
+}
+
+#respond.comment-respond {
+  #commentform .logged-in-as,
+  #reply-title.comment-reply-title {
+    display: none;
+  }
+}
+
+#st-3.st-sticky-share-buttons {
+  display: none;
+}
+
+.article-related-posts-list-item {
+  margin-bottom: 50px;
+}
+
+.blog-section-wrapper ul {
+  margin: 50px 0 50px 70px;
+  li:before {
+    margin-right: 10px;
+    font-family: FontAwesome;
+    content: "\f107";
+    color: $brand-color;
+    font-size: 1rem;
+    font-weight: 700;
+  }
+}

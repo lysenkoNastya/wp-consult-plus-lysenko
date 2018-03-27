@@ -1,0 +1,97 @@
+@import "../css/reset.css";
+
+$brand-color: #ffac56;
+$header-menu-color: #4e4e4e;
+$bg-section: #262829;
+$text-color: #fff;
+$border-header: #545759;
+$header-contact-text: #a2a5a6;
+
+.container {
+  max-width: 1140px;
+}
+
+.header-contact {
+  padding: 15px 0;
+  background-color: $bg-section;
+  .header-contact-item {
+    margin-left: 30px;
+    display: inline-block;
+    color: $text-color;
+  }
+
+  .phone {
+    border-left-color: $border-header;
+  }
+}
+
+.navbar {
+  padding: 30px 0;
+}
+
+.main-menu {
+  padding: 20px 0;
+
+  .main-menu-link,
+  .nav-link {
+    padding: 10px;
+    text-transform: uppercase;
+    display: inline-block;
+    color: $header-menu-color;
+    font-weight: 500;
+    font-size: 1rem;
+
+    &:hover,
+    &:active{
+      color: $brand-color;
+    }
+
+    @media (min-width: 992px) {
+      margin-left: 5px;
+      font-size: 1.3rem;
+    }
+
+
+  }
+
+  .main-menu-link,
+  .main-menu-link,
+  .contacts-info-item-phone,
+  .info-list-item-link:link {
+    font-size: 0.8rem;
+
+    @media (min-width: 768px) {
+      font-size: 1rem;
+    }
+  }
+
+  .menu-item {
+    display: inline-block;
+  }
+}
+
+.active.nav-item .nav-link,
+.navbar-light .navbar-nav .active>.nav-link,
+.btn-header {
+  color: $brand-color;
+}
+
+.header-contact-item {
+  text-transform: uppercase;
+  &-title {
+    margin-right: 10px;
+    font-size: 1rem;
+  }
+  a, &-link {
+    color: $header-contact-text;
+  }
+
+  a, .mrg-item {
+    margin-right: 30px;
+  }
+
+}
+
+.contact-line {
+  border-right: 1px solid $header-contact-text;
+}

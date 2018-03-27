@@ -1,0 +1,104 @@
+$brand-color: #ffac56;
+$header-menu-color: #4e4e4e;
+$bg-section: #262829;
+$text-color: #fff;
+$border-header: #545759;
+$text-color-footer: #e1e1e1;
+$text-info-footer: #838b8c;
+$btn-color: #16d428;
+$bg-input-email: #525353;
+
+.site-footer {
+  padding: 95px 0;
+  background-color: $bg-section;
+
+  .textwidget p {
+    margin : 35px 0 25px;
+    font-size: 1rem;
+    text-transform: none;
+    color: $text-info-footer;
+  }
+
+  .news-letter {
+    margin-bottom: 35px;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    color: $text-color-footer;
+  }
+
+  .site-footer .EMAIL-label.yikes-mailchimp-field-required,
+  .site-footer .yikes-easy-mc-form input[type=email],
+  .yikes-easy-mc-form input[type=email] {
+    display: inline-block;
+    width: 80%;
+    border-radius: 20px;
+    background-color: $bg-input-email;
+
+    input#yikes-easy-mc-form-1-EMAIL {
+      color: $text-info-footer;
+      text-transform: uppercase;
+    }
+  }
+
+  .yikes-easy-mc-submit-button {
+    background-color: $btn-color;
+    text-transform: uppercase;
+    color: $text-color;
+  }
+}
+
+#yikes-easy-mc-form-1-EMAIL {
+  padding: 10px 15px;
+  font-size: .8rem;
+  width: 100%;
+}
+
+
+.EMAIL-label.yikes-mailchimp-field-required,
+.yikes-easy-mc-form .field-no-label,
+.yikes-easy-mc-form label  {
+  display: inline-block;
+  width: 60%;
+}
+
+.yikes-easy-mc-form .yikes-easy-mc-submit-button.admin-logged-in,
+.yikes-easy-mc-submit-button.yikes-easy-mc-submit-button-1.btn.btn-primary {
+  margin-left: -35px;
+  width: 35%;
+  border-radius: 20px;
+  display: inline-block;
+}
+
+ .post-edit-link {
+  display: none;
+}
+
+.menu-item a {
+  color: $text-info-footer;
+  text-transform: uppercase;
+}
+
+.footer-top {
+  border-bottom: 1px solid $text-info-footer;
+}
+
+.news-letter-title {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  color: $text-color;
+}
+
+.follow-us-item a,
+a.nav-link.industary-list-link {
+  padding: 5px 0;
+  color: $text-info-footer;
+  text-transform: uppercase;
+}
+
+.footer-top-menu {
+  margin-right: 20px;
+
+  @media (min-width: 992px) {
+    margin-right: 50px;
+  }
+}
