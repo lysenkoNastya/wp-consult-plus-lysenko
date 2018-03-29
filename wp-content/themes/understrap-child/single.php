@@ -15,25 +15,25 @@ $container   = get_theme_mod( 'understrap_container_type' );
         <div class="container-fluid" >
             <header class="blog-section-header">
                 <div class="container">
-                    <h2 class="general-title blog-section-header-title "><?php wp_title("", true); ?></h2>
+                    <h2 class="general-title blog-section-header-title "><?php wp_title("", true); ?></h2><!-- wp_title - устарела и зачем ты его тут используешь? -->
                 </div>
             </header>
         </div>
     </section>
 	<section class="<?php echo esc_attr( $container ); ?>" tabindex="-1">
 		<div class="blog-section-main row">
-		<?php if( function_exists('kama_breadcrumbs') ) kama_breadcrumbs(); ?>
+		<?php if( function_exists('kama_breadcrumbs') ) kama_breadcrumbs(); ?><!-- kama_breadcrumbs - функцию как бы не находит -->
             <div class="blog-section-main-content  col-lg-9 col-sm-6">
                 <span class="our-steps-subtitle d-block">
                     <?php echo get_theme_mod( 'blog_subtitle' );?>
                 </span>
                 <h3 class="our-steps-title d-block">
-                    <?php the_title(""); ?>
+                    <?php the_title(""); ?><!-- не указывай ничего если ничего не ставишь до и после либо укажи Н3 с классами -->
                 </h3>
                 <?php while ( have_posts() ) : the_post(); ?>
                    <div class="blog-section-wrapper list-item-text-block text-justify">
                        <a href="<?php the_permalink(); ?>">
-                          <?php the_post_thumbnail();?>
+                          <?php the_post_thumbnail();?><!-- Нет проверки на налиие картинки -->
                        </a>
                        <h2 class="blog-text-block d-block">
                            <a class="blog-section-list-item-title d-inline-block text-left" href="<?php the_permalink(); ?>">
@@ -41,15 +41,15 @@ $container   = get_theme_mod( 'understrap_container_type' );
                            </a>
                        </h2>
                        <div class="date-wrapper">
-                           <date class="date">
-                               <?php echo get_the_date('d-M-Y'); ?>
+                           <date class="date"> <!-- Тега такого нет -->
+                               <?php echo get_the_date('d-M-Y'); ?><!-- the_date - вывело бы без дополнительного вывода -->
                            </date>
                        </div>
                         <?php the_content(); ?>
                    </div>
 
                     <span class="related-posts-icon-link d-inline-block">
-                        Related posts
+                        Related posts<!-- Хард код текста??? -->
                     </span>
 
                     <?php
@@ -69,7 +69,7 @@ $container   = get_theme_mod( 'understrap_container_type' );
                     );
 
                     $recent_posts = wp_get_recent_posts( $args );
-                    ?>
+                    ?><!-- А зачем не используемые параметры выставлять? -->
 
                     <div class="row article-related-posts-list">
 
