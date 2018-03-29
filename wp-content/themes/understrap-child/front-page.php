@@ -26,24 +26,26 @@ $container   = get_theme_mod( 'understrap_container_type' );
                         </span>
                         <h3 class="why-us-title industry d-block text-left">
                              <?php echo get_theme_mod( 'industry_slider_title' );?>
-                        </h2>
+                        </h2><!-- открываешь Н3 а закрываешь Н2? -->
                     </div>
                 </div>
                 <div class="industry-block d-inline-block">
-                <div class="row">
-                    <ul class="industry-project-listr col-6">
+                <div class="row"><!-- Отступы -->
+                    <ul class="industry-project-listr col-6"> <!-- Вообще не правильная логика. задаешь отдельный филд в таксономии и туда каждому терму задаешь картинку и уже потом по термам прогоняешь -->
                         <?php
-                           $industry = new WP_Query( array('post_type' => array( 'industry' )) );
-                           if ( $industry->have_posts() ) {
+                           $industry = new WP_Query( array('post_type' => array( 'industry' )) ); //Надо указывать количество постов которые тянешь иначе будет доставать столько сколько установлено в админке
+                           if ( $industry->have_posts() ) { //проверку надо делать до тега списка, что бы если постов нет - не выводить пустой тег
                             while ( $industry->have_posts() ) {
                              $industry->the_post(); ?>
-                                <li class="industry-project-list-item" data-target="<?= get_the_tags(); ?>">
-                                    <div class="section-industry-list-item-image"><?php the_post_thumbnail(); ?></div>
+								<!-- это должен быть список термов таксономии, и они должны быть ссылками на архив терма -->
+                                <li class="industry-project-list-item" data-target="<?= get_the_tags(); ?>"> <!-- get_the_tags() - ничего не выводит -->
+                                    <div class="section-industry-list-item-image"><?php the_post_thumbnail(); ?></div><!-- нет проверки на наличие этой самой картинки -->
                                 </li>
                         <?php
                             }
                         } else {
                             // Постов не найдено
+							   //тут как бы тоже что то надо писать или же не вставлять елсе
                         }
                         wp_reset_query();
                         wp_reset_postdata();
@@ -73,7 +75,7 @@ $container   = get_theme_mod( 'understrap_container_type' );
         <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
-        </a>
+        </a> <!-- Карусель не работает и что ты тут листаешь? -->
     </div>
 </section>
 
@@ -84,6 +86,7 @@ $container   = get_theme_mod( 'understrap_container_type' );
                 if( !empty($myfile) ): ?>
                 <div class="why-us col-sm-7 text-right">
                     <span class="why-us-subtitle d-block">
+						<!-- Надо каждое поле перепроверять -->
                         <?php echo $myfile['sub_title']; ?>
                     </span>
                     <h3 class="why-us-title d-block">
@@ -92,12 +95,12 @@ $container   = get_theme_mod( 'understrap_container_type' );
                     <span class="why-us-text d-block">
                          <?php echo $myfile['text']; ?>
                     </span>
-                    <a href="#" class="why-us-btn d-inline-block">
+                    <a href="#" class="why-us-btn d-inline-block"><!-- Ссылка тоже должна задаваться из админки -->
                          <?php echo $myfile['btn']; ?>
                     </a>
                 </div>
                 <a class="col-sm-5" href="#">
-                    <image class="about-us-img" src="<?php echo $myfile['image']; ?>" alt="about_us_image">
+                    <image class="about-us-img" src="<?php echo $myfile['image']; ?>" alt="about_us_image"><!-- А что это за новый тег такой??? -->
                 </a>
                 <a href="#">
                     <image class="about-us-img-years" src="<?php echo $myfile['image_years']; ?>" alt="about_us_image_years">
@@ -120,7 +123,7 @@ $container   = get_theme_mod( 'understrap_container_type' );
                 <?php echo $myfile['title']; ?>
             </h3>
             <ul class="our-steps-list row">
-                <li class="our-steps-list-item col-md-4">
+                <li class="our-steps-list-item col-md-4"><!-- Это должно в цикле прогоняться и выводиться -->
                     <a class="our-steps-list-item-link d-inline-block" href="#">
                         <image class="our-steps-item-img" src="<?php echo $myfile['icon_img_item1']; ?>" alt="our_steps_image1">
                     </a>
@@ -173,7 +176,7 @@ $container   = get_theme_mod( 'understrap_container_type' );
     <div class="container">
         <div class="<?php echo esc_attr( $container ); ?>">
                 <span class="our-steps-subtitle d-block">
-                    <?= the_field('testimonials-sub_title') ?>
+                    <?= the_field('testimonials-sub_title') ?><!-- the_field и так выводит -->
                 </span>
                 <h3 class="why-us-subtitle d-block">
                     <?= the_field('testimonials-title') ?>
@@ -202,7 +205,7 @@ $container   = get_theme_mod( 'understrap_container_type' );
                             <li class="d-flex align-items-center slider-image-item">
                                 <div> <?php the_post_thumbnail(); ?> </div>
                                 <div class=" d-flex ">
-                                    <span> <?php the_title(); ?></span>
+                                    <span> <?php the_title(); ?></span><!-- Ну это же заголовок -->
                                     <span><?php echo get_post_meta(get_the_ID(), 'position', true); ?></span>
                                 </div>
                             </li>
